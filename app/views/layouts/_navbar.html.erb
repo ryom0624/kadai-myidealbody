@@ -14,13 +14,14 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li><a href="#">比較</a></li>
-          <li class="dropdown">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ログ<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">新規ログ</a></li>
                 <li><a href="#">ログ一覧</a></li>
               </ul>
-              <li class="dropdown">
+            </li>
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "ユーザ編集", edit_user_path(current_user) %></li>
@@ -30,7 +31,7 @@
                 <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
               </ul>
             </li>
-            <% else %>
+          <% else %>
             <li><%= link_to "新規登録", signup_path %></li>
             <li><%= link_to "ログイン", login_path %></li>
           <% end %>
