@@ -1,6 +1,15 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>My Ideal Body</h1>
-    <h3>あなたの理想のカラダへ</h3>
+<% if logged_in? %>
+
+<%= @user.id %>
+<%= @user.name %>
+
+
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>My Ideal Body</h1>
+      <h3>あなたの理想のカラダへ</h3>
+      <%= link_to "新規登録", signup_path, class:"btn btn-info btn-lg" %>
+    </div>
   </div>
-</div>
+<% end %>
