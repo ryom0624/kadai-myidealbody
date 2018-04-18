@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :update,:destroy]
 
   def new
     @log = current_user.logs.build
@@ -17,11 +18,9 @@ class LogsController < ApplicationController
   end
 
   def edit
-    @log = Log.find(params[:id])
   end
 
   def update
-    @log = Log.find(params[:id])
     if @log.update(log_params)
       flash[:success] = "ログの保存が完了しました"
       redirect_to root_url
@@ -32,7 +31,6 @@ class LogsController < ApplicationController
   end
 
   def destroy
-    @log = Log.find(params[:id])
     @log.destroy
     flash[:success] = "ログの削除が完了しました"
     redirect_to root_url
@@ -42,6 +40,13 @@ class LogsController < ApplicationController
   
   def log_params
     params.require(:log).permit(:user_id,:date,:weight,:fat)
+  end
+  
+  def correct_user
+    @log = current_user.logs.find_by(id: params[:id])
+    unless @log
+      redirect_to root_url
+    end
   end
   
 end

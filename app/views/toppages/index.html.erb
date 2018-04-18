@@ -2,13 +2,27 @@
 
 <%= current_user.id %>
 <%= current_user.name %>
+
 <ul>
   <% @logs.each do |log| %>
-    <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
-    <%= link_to "編集", edit_log_path(log) %>
-    <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel panel-body">
+            <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
+            <%= link_to "編集", edit_log_path(log) %>
+            <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>
+          </div>
+        </div>        
+      </div>
+    </div>
+
   <% end %>
 </ul>
+
+
+
+
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
@@ -18,3 +32,5 @@
     </div>
   </div>
 <% end %>
+
+<%= paginate @logs %>
