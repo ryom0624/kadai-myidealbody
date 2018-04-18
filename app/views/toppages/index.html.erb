@@ -1,9 +1,14 @@
 <% if logged_in? %>
 
-<%= @user.id %>
-<%= @user.name %>
-
-
+<%= current_user.id %>
+<%= current_user.name %>
+<ul>
+  <% @logs.each do |log| %>
+    <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
+    <%= link_to "編集", edit_log_path(log) %>
+    <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>
+  <% end %>
+</ul>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">

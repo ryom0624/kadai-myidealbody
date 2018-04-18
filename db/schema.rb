@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417072928) do
+ActiveRecord::Schema.define(version: 20180417115643) do
+
+  create_table "logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.date     "date"
+    t.decimal  "weight",     precision: 5, scale: 2
+    t.decimal  "fat",        precision: 3, scale: 1
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["user_id"], name: "index_logs_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -20,4 +30,5 @@ ActiveRecord::Schema.define(version: 20180417072928) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "logs", "users"
 end
