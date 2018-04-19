@@ -7,5 +7,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: true }
 
   has_many :logs
+  has_one :goal
   has_secure_password
 end

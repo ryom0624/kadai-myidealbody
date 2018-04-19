@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   
   resources :logs, only: [:new,:create,:edit,:update,:destroy]
+  resources :goals, only: [:new,:create,:edit,:update]
+
+  get "compare", to: "compares#index"
+  post "compare", to: "compares#index"
 
 end

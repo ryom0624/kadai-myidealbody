@@ -1,0 +1,29 @@
+<%= form_tag(compare_path, method: :get) do %>
+  <div class="panel">
+    <div class="panel panel-default">
+      <div class="panel-heading">ログ・目標比較</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-3">
+            <div class="form-group">
+              <%= label_tag :compare1, "ログデータ１"%>
+              <%= date_field_tag :compare1, class:"form-control" %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+            <%= label_tag :compare1, "ログデータ２"%>
+            <%= date_field_tag :compare2, class:"form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <%= check_box_tag :goal,"yes","no" %>目標と比較する
+        </div>
+        <div class="text-center">
+          <%= submit_tag "検索",class:"btn btn-success btn-lg text-center" %>
+        </div> 
+      </div>
+    </div>
+  </div>
+<% end %>

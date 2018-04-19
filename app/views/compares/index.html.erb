@@ -1,0 +1,41 @@
+
+<%= render "form" %>
+
+<div class="row">
+  <div class="col-md-4 text-center">
+    <h3>ログデータ１</h3>
+    <% unless @log1.present? %>
+      <%= "該当のデータは存在しませんでした" %>
+    <% else %>
+      <div>
+        日付:<%= @log1.date %></br>
+        weight:<%= @log1.weight %></br>
+        fat:<%= @log1.fat %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4 text-center">
+    <h3>ログデータ２</h3>
+    <% unless @log2.present? %>
+      <%= "該当のデータは存在しませんでした" %>
+    <% else %>
+      <div>
+        日付:<%= @log2.date %></br>
+        weight:<%= @log2.weight %></br>
+        fat:<%= @log2.fat %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4 text-center">
+    <h3>目標</h3>
+    <% unless @goal.present? %>
+      <%= "該当のデータは存在しませんでした" %>
+    <% else %>
+      <div>
+        日付:<%= @goal.date %></br>
+        weight:<%= @goal.weight %></br>
+        fat:<%= @goal.fat %>
+      </div>
+    <% end %>
+  </div>
+</div>

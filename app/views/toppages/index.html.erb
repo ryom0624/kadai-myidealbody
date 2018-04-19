@@ -3,21 +3,37 @@
 <%= current_user.id %>
 <%= current_user.name %>
 
+
 <ul>
-  <% @logs.each do |log| %>
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
         <div class="panel panel-default">
+          <div class="panel panel-heading">目標</div>
           <div class="panel panel-body">
-            <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
-            <%= link_to "編集", edit_log_path(log) %>
-            <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>
+            <li>date:<%= @goal.date.strftime("%Y/%m/%d") %>　　weight:<%= @goal.weight %>kg　　fat:<%= @goal.fat %>%  
+            <%= link_to "編集", edit_goal_path(current_user.goal) %>
           </div>
         </div>        
       </div>
     </div>
+</ul>
 
-  <% end %>
+<ul>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel panel-heading">ログ</div>
+        <div class="panel panel-body">
+          <% @logs.each do |log| %>
+            <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
+            <%= link_to "編集", edit_log_path(log) %>
+            <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>
+          <% end %>
+        </div>
+      </div>        
+    </div>
+  </div>
+  <%= paginate @logs %>
 </ul>
 
 
@@ -33,4 +49,3 @@
   </div>
 <% end %>
 
-<%= paginate @logs %>
