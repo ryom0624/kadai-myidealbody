@@ -1,45 +1,105 @@
 <% if logged_in? %>
-
-<%= current_user.id %>
-<%= current_user.name %>
-
-
-<ul>
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6">
-        <div class="panel panel-default">
-          <div class="panel panel-heading">目標</div>
-          <div class="panel panel-body">
-            <%= image_tag @goal.image  %>
-            <li>date:<%= @goal.date.strftime("%Y/%m/%d") %>　　weight:<%= @goal.weight %>kg　　fat:<%= @goal.fat %>%  
-            <%= link_to "編集", edit_goal_path(current_user.goal) %>
+  <div class="row">
+    <div class="col m4">
+      <div class="card">
+        <div class="card-content">
+          <div class="btn-floating btn-medium waves-effect waves-light blue lighten-3 center-align">
+            <%= link_to new_log_path do %><i class="material-icons">add</i><% end %>
           </div>
-        </div>        
+          <span style="margin-left:10px; font-size:18px">本日の体重を入力する</span>
+        </div>
       </div>
     </div>
-</ul>
-
-<ul>
-  <div class="row">
-    <div class="col-md-offset-3 col-md-6">
-      <div class="panel panel-default">
-        <div class="panel panel-heading">ログ</div>
-        <div class="panel panel-body">
-          <% @logs.each do |log| %>
-            <%= image_tag log.image  %>
-            <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
-            <%= link_to "編集", edit_log_path(log) %>
-            <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>
-          <% end %>
-        </div>
-      </div>        
-    </div>
   </div>
-  <%= paginate @logs %>
-</ul>
 
+  <% unless current_user.goal.present? %>
+    <div class="row">
+      <div class="col m4 offset-m4">
+        <div class="card">
+          <div class="card-content">
+            <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align">
+              <%= link_to new_goal_path do %><i class="material-icons">add</i><% end %>
+            </div>
+            <span style="margin-left:10px; font-size:18px">目標を設定しよう</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <h3 class="header">目標</h3>
+      <div class="col s12 m12">
+        <div class="card horizontal">
+          <div class="card-image">
+            <%= image_tag current_user.goal.image %>
+          </div>
+          <div class="card-stacked" >
+            <div class="card-content table-responsive">
+              <table class="centered">
+                <thead>
+                  <tr>
+                    <th>期日</th>
+                    <th>体重</th>
+                    <th>体脂肪率</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= @goal.date.strftime("%Y/%m/%d") %></td>
+                    <td><%= @goal.weight %>kg</td>
+                    <td><%= @goal.fat %>%</td>
+                  </tr>
+                </tbody>
+              </table>          
+            </div>
+            <div class="card-action center-align">
+              <%= link_to edit_goal_path(current_user.goal) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-
+  <% unless @logs.present? %>
+  <% else %>
+    <h3 class="header">ログ</h3>
+      <% @logs.each do |log| %>
+        <div class="col s12 m12">
+          <div class="card horizontal">
+            <div class="card-image">
+              <%= image_tag log.image  %>
+            </div>
+            <div class="card-stacked" >
+              <div class="card-content table-responsive">
+                <table class="centered">
+                  <thead>
+                    <tr>
+                      <th>日付</th>
+                      <th>体重</th>
+                      <th>体脂肪率</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= log.date.strftime("%Y/%m/%d") %></td>
+                      <td><%= log.weight %>kg</td>
+                      <td><%= log.fat %>%</td>
+                    </tr>
+                  </tbody>
+                </table>          
+              </div>
+              <div class="card-action center-align">
+                <%= link_to edit_log_path(log) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+                <%= link_to log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} do %><i class="material-icons">clear<span>削除</span></i><% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @logs %>
+  <% end %>
 
 <% else %>
   <div class="center jumbotron">

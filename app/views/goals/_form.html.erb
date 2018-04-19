@@ -3,16 +3,18 @@
   <%= render "layouts/error_messages", model: f.object %>
   <div class="form-group">
     <%= f.label :date, "期日"%>
-    <%= f.date_field :date, class:"form-control"%>
+    <div class="input-field">
+      <%= f.date_field :date, class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.number_field :weight ,step:0.05, placeholder:"体重(kg)" %>
   </div>
   <div class="form-group">
-    <%= f.label :weight, "体重(kg)"%>
-    <%= f.number_field :weight, class:"form-control",step:0.05 %>
+    <%= f.number_field :fat ,step:0.1, placeholder:"体脂肪率(%)" %>
   </div>
-  <div class="form-group">
-    <%= f.label :fat, "体脂肪率(%)"%>
-    <%= f.number_field :fat, class:"form-control",step:0.1 %>
-  </div>
+  
   <div class="form-group">
     <%=f.label :image,"目標にしたい画像をアップロード" %>
     <%= f.file_field :image ,class:"form-contorl"%>
@@ -22,6 +24,4 @@
     <%= f.submit "保存", class:"btn btn-info btn-lg" %>
   </div>
 <% end %>
-
-
 

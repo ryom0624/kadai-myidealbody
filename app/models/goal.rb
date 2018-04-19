@@ -6,5 +6,4 @@ class Goal < ApplicationRecord
   validates :weight, numericality: { greater_than: 0, less_than: 200.00 }
   validates :fat, numericality: { greater_than: 0, less_than: 100.0 }
   
-  mount_uploader :image, ImageUploader
 end

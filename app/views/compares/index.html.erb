@@ -1,44 +1,105 @@
 
 <%= render "form" %>
 
+
 <div class="row">
-  <div class="col-md-4 text-center">
-    <h3>ログデータ１</h3>
-    <% unless @log1.present? %>
-      <%= "該当のデータは存在しませんでした" %>
-    <% else %>
-      <div>
-        <%= image_tag @log1.image%>
-        日付:<%= @log1.date %></br>
-        weight:<%= @log1.weight %></br>
-        fat:<%= @log1.fat %>
+  <% unless @log1.present? %>
+  <% else %>
+    <div class="col m4 center-align">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @log1.image%>
+          <span class="card-title">ログデータ１</span>
+        </div>
+        <div class="card-content">
+          <table class="centered">
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>体重</th>
+                <th>体脂肪率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @log1.date.strftime("%Y/%m/%d") %></td>
+                <td><%= @log1.weight %>kg</td>
+                <td><%= @log1.fat %>%</td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="card-action">
+          <%= link_to edit_log_path(@log1) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+        </div>      
       </div>
-    <% end %>
-  </div>
-  <div class="col-md-4 text-center">
-    <h3>ログデータ２</h3>
-    <% unless @log2.present? %>
-      <%= "該当のデータは存在しませんでした" %>
-    <% else %>
-      <div>
-        <%= image_tag @log2.image%>
-        日付:<%= @log2.date %></br>
-        weight:<%= @log2.weight %></br>
-        fat:<%= @log2.fat %>
+    </div>
+  <% end %>
+  
+  <% unless @log2.present? %>
+  <% else %>
+    <div class="col m4 center-align">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @log2.image%>
+          <span class="card-title">ログデータ２</span>
+        </div>
+        <div class="card-content">
+          <table class="centered">
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>体重</th>
+                <th>体脂肪率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @log2.date.strftime("%Y/%m/%d") %></td>
+                <td><%= @log2.weight %>kg</td>
+                <td><%= @log2.fat %>%</td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="card-action">
+          <%= link_to edit_log_path(@log2) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+        </div>
       </div>
-    <% end %>
-  </div>
-  <div class="col-md-4 text-center">
-    <h3>目標</h3>
-    <% unless @goal.present? %>
-      <%= "該当のデータは存在しませんでした" %>
-    <% else %>
-      <div>
-        <%= image_tag @goal.image%>
-        日付:<%= @goal.date %></br>
-        weight:<%= @goal.weight %></br>
-        fat:<%= @goal.fat %>
+    </div>  
+  <% end %>
+  
+  <% unless @goal.present? %>
+  <% else %>
+    <div class="col m4 center-align">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= image_tag @goal.image%>
+          <span class="card-title">目標</span>
+        </div>
+        <div class="card-content">
+          <table class="centered">
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>体重</th>
+                <th>体脂肪率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @goal.date.strftime("%Y/%m/%d") %></td>
+                <td><%= @goal.weight %>kg</td>
+                <td><%= @goal.fat %>%</td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="card-action">
+          <%= link_to edit_goal_path(@goal) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
+  
