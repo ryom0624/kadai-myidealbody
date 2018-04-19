@@ -32,7 +32,7 @@ class GoalsController < ApplicationController
   private
   
   def goal_params
-    params.require(:goal).permit(:user_id,:date,:weight,:fat)
+    params.require(:goal).permit(:user_id,:date,:weight,:fat,:image)
   end
   
   def correct_user

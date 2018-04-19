@@ -10,6 +10,7 @@
         <div class="panel panel-default">
           <div class="panel panel-heading">目標</div>
           <div class="panel panel-body">
+            <%= image_tag @goal.image  %>
             <li>date:<%= @goal.date.strftime("%Y/%m/%d") %>　　weight:<%= @goal.weight %>kg　　fat:<%= @goal.fat %>%  
             <%= link_to "編集", edit_goal_path(current_user.goal) %>
           </div>
@@ -25,6 +26,7 @@
         <div class="panel panel-heading">ログ</div>
         <div class="panel panel-body">
           <% @logs.each do |log| %>
+            <%= image_tag log.image  %>
             <li>date:<%= log.date.strftime("%Y/%m/%d") %>　　weight:<%= log.weight %>kg　　fat:<%= log.fat %>%  
             <%= link_to "編集", edit_log_path(log) %>
             <%= link_to "削除", log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} %></li>

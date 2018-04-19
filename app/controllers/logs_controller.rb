@@ -39,7 +39,7 @@ class LogsController < ApplicationController
   private
   
   def log_params
-    params.require(:log).permit(:user_id,:date,:weight,:fat)
+    params.require(:log).permit(:user_id,:date,:weight,:fat,:image)
   end
   
   def correct_user

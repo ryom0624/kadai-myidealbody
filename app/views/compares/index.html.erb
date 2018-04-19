@@ -8,6 +8,7 @@
       <%= "該当のデータは存在しませんでした" %>
     <% else %>
       <div>
+        <%= image_tag @log1.image%>
         日付:<%= @log1.date %></br>
         weight:<%= @log1.weight %></br>
         fat:<%= @log1.fat %>
@@ -20,6 +21,7 @@
       <%= "該当のデータは存在しませんでした" %>
     <% else %>
       <div>
+        <%= image_tag @log2.image%>
         日付:<%= @log2.date %></br>
         weight:<%= @log2.weight %></br>
         fat:<%= @log2.fat %>
@@ -32,6 +34,7 @@
       <%= "該当のデータは存在しませんでした" %>
     <% else %>
       <div>
+        <%= image_tag @goal.image%>
         日付:<%= @goal.date %></br>
         weight:<%= @goal.weight %></br>
         fat:<%= @goal.fat %>

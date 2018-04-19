@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418081303) do
+ActiveRecord::Schema.define(version: 20180419045308) do
 
   create_table "goals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180418081303) do
     t.decimal  "fat",        precision: 3, scale: 1
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.string   "image"
     t.index ["user_id"], name: "index_goals_on_user_id", using: :btree
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180418081303) do
     t.decimal  "fat",        precision: 3, scale: 1
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.string   "image"
     t.index ["user_id"], name: "index_logs_on_user_id", using: :btree
   end
 
