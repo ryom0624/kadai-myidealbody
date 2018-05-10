@@ -1,48 +1,71 @@
 <header>
-  <nav class="navbar navbar-transparent subnavbar">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="brand-logo" href="/"><strong style='font-family: Lato, "Noto Sans JP";'>My Ideal Body</strong></a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right" style="margin-top:5px;">
-          <% if logged_in? %>
-                <li><%= link_to "比較", compare_path %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ログ<span class="caret"></span></a>
-              <ul class="dropdown-menu" style="padding:10px 25px;">
-                <li><%= link_to "新規ログ", new_log_path %></li>
-                <li><a href="/">ログ一覧</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
-              <ul class="dropdown-menu" style="padding:10px 30px;">
-                <li><%= link_to "ユーザ編集", edit_user_path(current_user) %></li>
-                <li role="separator" class="divider"></li>
-                <% if current_user.goal %>
-                  <li><%= link_to "目標管理", edit_goal_path(current_user.goal) %></li>
-                <% else %>
-                  <li><%= link_to "目標設定", new_goal_path %></li>
-                <% end %>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "新規登録", signup_path %></li>
-            <li><%= link_to "ログイン", login_path %></li>
-          <% end %>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">My Ideal Body</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <% if logged_in? %>
+        <ul class="right hide-on-med-and-down">
+          <li class="navi center-align"><%= link_to "比較", compare_path %></li>
+          <li class="navi center-align"><a class="dropdown-button" href="#!" data-activates="dropdown1">ログ<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li class="navi center-align"><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
-      </div>
+        <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to "比較", compare_path %></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown3">ログ<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      <% else %>
+        <ul class="right hide-on-med-and-down">
+          <li><%= link_to "新規登録", signup_path %></li>
+          <li><%= link_to "ログイン", login_path %></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to "新規登録", signup_path %></li>
+          <li><%= link_to "ログイン", login_path %></li>
+        </ul>
+      <% end %>
     </div>
   </nav>
 </header>
+
+
+<% if logged_in? %>
+  <!-- Dropdown Structure PC ログ-->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><%= link_to "新規ログ", new_log_path %></li>
+    <li><a href="/">ログ一覧</a></li>
+  </ul>
+  <!-- Dropdown Structure PC user-->
+  <ul id="dropdown2" class="dropdown-content">
+    <li><%= link_to "ユーザ編集", edit_user_path(current_user) %></li>
+    <li class="divider"></li>
+    <% if current_user.goal %>
+      <li><%= link_to "目標管理", edit_goal_path(current_user.goal) %></li>
+    <% else %>
+      <li><%= link_to "目標設定", new_goal_path %></li>
+    <% end %>
+    <li class="divider"></li>
+    <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+  </ul>
+<% end %>
+
+<% if logged_in? %>
+  <!-- Dropdown Structure スマホ ログ-->
+  <ul id="dropdown3" class="dropdown-content">
+    <li><%= link_to "新規ログ", new_log_path %></li>
+    <li><a href="/">ログ一覧</a></li>
+  </ul>
+  <!-- Dropdown Structure スマホ user-->
+  <ul id="dropdown4" class="dropdown-content">
+    <li><%= link_to "ユーザ編集", edit_user_path(current_user) %></li>
+    <li class="divider"></li>
+    <% if current_user.goal %>
+      <li><%= link_to "目標管理", edit_goal_path(current_user.goal) %></li>
+    <% else %>
+      <li><%= link_to "目標設定", new_goal_path %></li>
+    <% end %>
+    <li class="divider"></li>
+    <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+  </ul>
+<% end %>
 

@@ -1,25 +1,24 @@
 <%= form_tag(compare_path, method: :get) do %>
   <div class="row">
-    <div class="col-md-offset-1 col-md-10 text-center">
+    <div class="col offset-m1 m10 text-center">
       <div class="card">
         <div class="card-content">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col m6">
               <div class="form-group">
                 <%= label_tag :compare1, "ログデータ１"%>
-                <%= date_field_tag :compare1, class:"form-control" %>
+                <%= select_tag :compare1, options_from_collection_for_select(current_user.logs.order(date: :asc), :date, :date) ,class:"form-control"%>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col m6">
               <div class="form-group">
-                <%= label_tag :compare1, "ログデータ２"%>
-                <%= date_field_tag :compare2, class:"form-control" %>
+                <%= label_tag :compare2, "ログデータ２"%>
+                <%= select_tag :compare2, options_from_collection_for_select(current_user.logs.order(date: :asc), :date, :date) ,class:"form-control"%>
               </div>
             </div>
-            <div class="form-group text-center">
-              <label>
-                <%= check_box_tag :goal,"yes","no" %><span>目標と比較する</span>
-              </label>
+            <div class="form-group">
+              <%= check_box_tag :goal,"yes","no" ,class:"filled-in", id:"filled-in-box" %>
+              <label for="filled-in-box">目標と比較する</label>
             </div>
             <div>
               <%= submit_tag "比較する" , class:"btn waves-effect waves-light" %>

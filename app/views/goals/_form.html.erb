@@ -18,6 +18,10 @@
   <div class="form-group">
     <%=f.label :image,"目標にしたい画像をアップロード" %>
     <%= f.file_field :image ,class:"form-contorl"%>
+    <div class="text-center">
+      <%= image_tag goal.image.url if goal.image?%>
+      <%= f.hidden_field :image_cache %>
+    </div>
   </div>
 
   <div class="text-center">

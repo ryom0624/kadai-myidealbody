@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+/* global $*/
+
+$(function() {
+    //ユーザーの端末で条件分岐
+    $(window).scroll(function () {
+      var ua = navigator.userAgent;
+      if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 
+    && ua.indexOf('Mobile') > 0) {
+        $("div").removeClass("horizontal");
+      } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+            // タブレット用の処理
+      } else {
+            // PC用の処理
+      }
+   });
+});
