@@ -30,3 +30,34 @@ div .form-group .text-center{
 .side-nav{
   width:200px;
 }
+
+@media screen and ( max-width:479px )
+{
+	/* ボディ */
+	.weight-card {
+		font-size: 15px ;	 /*文字サイズ */
+	}
+	
+	nav .brand-logo {
+	  font-size: 1.7rem;
+	}
+	h3 {
+	  font-size: 1.4rem;
+	}
+	
+	.container {
+	  width: 100%;
+	  margin: 0 auto;
+	}
+	
+	div .jumbotron{
+	  margin-top: 10px;
+	}
+	div .alert{
+	  margin-top: 10px;
+	}
+	
+	h1 {
+	  font-size:2.5rem;
+	}
+}

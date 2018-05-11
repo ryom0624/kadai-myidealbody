@@ -4,13 +4,13 @@
       <div class="card">
         <div class="card-content">
           <div class="row">
-            <div class="col m6">
+            <div class="col m6 s12">
               <div class="form-group">
                 <%= label_tag :compare1, "ログデータ１"%>
                 <%= select_tag :compare1, options_from_collection_for_select(current_user.logs.order(date: :asc), :date, :date) ,class:"form-control"%>
               </div>
             </div>
-            <div class="col m6">
+            <div class="col m6 s12">
               <div class="form-group">
                 <%= label_tag :compare2, "ログデータ２"%>
                 <%= select_tag :compare2, options_from_collection_for_select(current_user.logs.order(date: :asc), :date, :date) ,class:"form-control"%>
