@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
  
  gem 'carrierwave'
  gem 'rmagick'
-
+ gem 'cloudinary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

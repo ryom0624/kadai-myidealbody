@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hpl6noclu
+  api_key: '189492498238493'
+  api_secret: E_R-fSa55ldWG8F583ZRwwWaB88
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hpl6noclu
+  api_key: '189492498238493'
+  api_secret: E_R-fSa55ldWG8F583ZRwwWaB88
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hpl6noclu
+  api_key: '189492498238493'
+  api_secret: E_R-fSa55ldWG8F583ZRwwWaB88
+  enhance_image_tag: true
+  static_image_support: false
