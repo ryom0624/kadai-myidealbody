@@ -31,6 +31,11 @@ div .form-group .text-center{
   width:200px;
 }
 
+	.card.horizontal .card-image img  {
+		height: 240px;
+		width: 290px;
+	}
+
 @media screen and ( max-width:479px )
 {
 	/* ボディ */
@@ -59,5 +64,10 @@ div .form-group .text-center{
 	
 	h1 {
 	  font-size:2.5rem;
+	}
+	
+	img {
+		height: 350px;
+		width: 290px;
 	}
 }
