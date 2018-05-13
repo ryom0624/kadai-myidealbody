@@ -6,7 +6,7 @@
   <% unless @log1.present? %>
   <% else %>
     <div class="col s12 m12 l4 center-align">
-      <div class="card hoverable">
+      <div class="card hoverable animated zoomIn">
         <div class="card-image">
           <%= image_tag @log1.image,size: "290x400"%>
           <span class="card-title">ログデータ１</span>
@@ -39,7 +39,7 @@
   <% unless @log2.present? %>
   <% else %>
     <div class="col s12 m12 l4 center-align">
-      <div class="card hoverable">
+      <div class="card hoverable animated zoomIn">
         <div class="card-image">
           <%= image_tag @log2.image,size: "290x400"%>
           <span class="card-title">ログデータ２</span>
@@ -72,7 +72,7 @@
   <% unless @goal.present? %>
   <% else %>
     <div class="col s12 m12 l4 center-align">
-      <div class="card hoverable">
+      <div class="card hoverable animated zoomIn">
         <div class="card-image">
           <%= image_tag @goal.image,size: "290x400"%>
           <span class="card-title">目標</span>

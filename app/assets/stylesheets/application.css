@@ -31,17 +31,29 @@ div .form-group .text-center{
   width:200px;
 }
 
-	.card.horizontal .card-image img  {
-		height: 240px;
-		width: 290px;
-	}
+.card.horizontal .card-image img  {
+  height: 240px;
+  width: 290px;
+}
 
-	.chart-container{
-		position: relative;
-		height: 80vh;
-		width: 70vw;
-	}
+.card-image img  {
+  height: 240px;
+  width: 290px;
+}
 
+.chart-container{
+	position: relative;
+	height: 80vh;
+	width: 70vw;
+}
+
+.bold {
+	font-size: 23px;
+}
+
+.strong{
+	font-weight: 900;
+}
 
 @media screen and ( max-width:479px )
 {
@@ -74,7 +86,7 @@ div .form-group .text-center{
 	}
 	
 	img {
-		height: 320px;
+		height: 240px;
 		width: 290px;
 	}
 
@@ -82,6 +94,12 @@ div .form-group .text-center{
 		position: relative;
 		height: 90vh;
 		width: 200vw;
+	}
+
+	.chash img{
+		margin:10px 10px;
+		height:200px;
+		width:200px;
 	}
 
 }

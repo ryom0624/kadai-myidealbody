@@ -1,3 +1,31 @@
+<% if @goal.present?%>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card animated slideInUp light-blue accent-1 z-depth-5">
+        <div class="card-content white-text">
+          <h6>目標達成まで</h6>
+              <p class="bold">体 重：<span class="strong"><%= @goal.weight - @current_log.weight%></span>kg</p>
+              <p class="bold">体脂肪率：<span class="strong"><%= @goal.fat - @current_log.fat %></span>%</p>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <div class="card animated slideInUp">
+        <div class="card-content">
+          <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align">
+            <%= link_to new_goal_path do %><i class="material-icons">add</i><% end %>
+          </div>
+          <span class="weight-card">目標を設定しよう</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="chart-container">
   <canvas id="myChart"></canvas>
 </div>

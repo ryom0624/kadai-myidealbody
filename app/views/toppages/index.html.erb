@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="row">
     <div class="col s12 m6 l6">
-      <div class="card">
+      <div class="card animated slideInUp hoverable">
         <div class="card-content">
           <div class="btn-floating btn-medium waves-effect waves-light blue lighten-3 center-align">
             <%= link_to new_log_path do %><i class="material-icons">add</i><% end %>
@@ -15,7 +15,7 @@
   <% unless current_user.goal.present? %>
     <div class="row">
       <div class="col s12 m6 l6">
-        <div class="card">
+        <div class="card animated slideInUp hoverable">
           <div class="card-content">
             <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align">
               <%= link_to new_goal_path do %><i class="material-icons">add</i><% end %>
@@ -29,7 +29,7 @@
     <div class="row">
       <h3 class="header">目標</h3>
       <div class="col s12 m12 center-align">
-        <div class="card horizontal">
+        <div class="card horizontal animated bounceInUp hoverable">
           <div class="card-image">
             <%= image_tag current_user.goal.image %>
           </div>
@@ -66,7 +66,7 @@
     <h3 class="header">ログ</h3>
       <% @logs.each do |log| %>
         <div class="col s12 m12">
-          <div class="card horizontal">
+          <div class="card horizontal animated bounceInUp hoverable">
             <div class="card-image">
               <%= image_tag log.image%>
             </div>
