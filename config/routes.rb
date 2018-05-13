@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get "compare", to: "compares#index"
   post "compare", to: "compares#index"
 
+  get "changes", to: "changes#index"
+  post "changes", to: "changes#index"
+
 end

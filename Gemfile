@@ -35,8 +35,15 @@ gem 'jbuilder', '~> 2.5'
  gem "kaminari"
  
  gem 'carrierwave'
+
  gem 'rmagick'
+
  gem 'cloudinary'
+
+ gem 'chart-js-rails'
+ 
+ gem 'gon'
+ 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

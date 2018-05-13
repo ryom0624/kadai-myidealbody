@@ -36,6 +36,13 @@ div .form-group .text-center{
 		width: 290px;
 	}
 
+	.chart-container{
+		position: relative;
+		height: 80vh;
+		width: 70vw;
+	}
+
+
 @media screen and ( max-width:479px )
 {
 	/* ボディ */
@@ -67,7 +74,14 @@ div .form-group .text-center{
 	}
 	
 	img {
-		height: 350px;
+		height: 320px;
 		width: 290px;
 	}
+
+	.chart-container{
+		position: relative;
+		height: 90vh;
+		width: 200vw;
+	}
+
 }
