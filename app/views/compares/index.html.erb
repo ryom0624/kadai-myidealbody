@@ -30,7 +30,7 @@
           </table>          
         </div>
         <div class="card-action">
-          <%= link_to edit_log_path(@log1) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+          <%= link_to edit_log_path(@log1), remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
         </div>      
       </div>
     </div>
@@ -63,7 +63,7 @@
           </table>          
         </div>
         <div class="card-action">
-          <%= link_to edit_log_path(@log2) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+          <%= link_to edit_log_path(@log2), remote: true do %><i class="material-icons  modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
         </div>
       </div>
     </div>  
@@ -96,10 +96,11 @@
           </table>          
         </div>
         <div class="card-action">
-          <%= link_to edit_goal_path(@goal) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+          <%= link_to edit_goal_path(@goal), remote: true do %><i class="material-icons  modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-  
+
+<div class="modal" id="modal">

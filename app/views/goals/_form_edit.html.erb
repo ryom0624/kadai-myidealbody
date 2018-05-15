@@ -1,0 +1,34 @@
+<div class="row form">
+  <div class="col m10 offset-m1 s12">
+    <h3>目標管理</h3>
+    <%= form_for goal,remote: true do |f| %>
+      <%= render "layouts/error_messages", model: f.object %>
+      <div class="form-group">
+        <%= f.label :date, "期日"%>
+        <div class="input-field">
+          <%= f.date_field :date, class:"form-control"%>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <%= f.number_field :weight ,step:0.05, placeholder:"体重(kg)" %>
+      </div>
+      <div class="form-group">
+        <%= f.number_field :fat ,step:0.1, placeholder:"体脂肪率(%)" %>
+      </div>
+      
+      <div class="form-group">
+        <%=f.label :image,"目標にしたい画像をアップロード" %>
+        <%= f.file_field :image ,class:"form-contorl"%>
+        <div class="text-center">
+          <%= image_tag goal.image.url if goal.image?%>
+          <%= f.hidden_field :image_cache %>
+        </div>
+      </div>
+    
+      <div class="text-center">
+        <%= f.submit "保存", class:"btn btn-info btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>

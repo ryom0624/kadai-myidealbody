@@ -16,8 +16,8 @@
     <div class="col s12 m6 l6">
       <div class="card animated slideInUp">
         <div class="card-content">
-          <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align">
-            <%= link_to new_goal_path do %><i class="material-icons">add</i><% end %>
+          <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align modal-trigger" data-target="modal">
+            <%= link_to new_goal_path, remote: true do %><i class="material-icons">add</i><% end %>
           </div>
           <span class="weight-card">目標を設定しよう</span>
         </div>
@@ -25,6 +25,8 @@
     </div>
   </div>
 <% end %>
+
+<div class="modal" id="modal"></div>
 
 <div class="chart-container">
   <canvas id="myChart"></canvas>

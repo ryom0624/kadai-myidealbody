@@ -3,15 +3,14 @@
     <div class="col s12 m6 l6">
       <div class="card animated slideInUp hoverable">
         <div class="card-content">
-          <div class="btn-floating btn-medium waves-effect waves-light blue lighten-3 center-align">
-            <%= link_to new_log_path do %><i class="material-icons">add</i><% end %>
+          <div class="btn-floating btn-medium waves-effect waves-light blue lighten-3 center-align modal-trigger" data-target="modal">
+            <%= link_to new_log_path, remote: true do %><i class="material-icons">add</i><% end %>
           </div>
           <span class="weight-card">本日の体重を入力する</span>
         </div>
       </div>
     </div>
   </div>
-
   <% unless current_user.goal.present? %>
     <div class="row">
       <div class="col s12 m6 l6">
@@ -53,7 +52,7 @@
               </table>          
             </div>
             <div class="card-action center-align">
-              <%= link_to edit_goal_path(current_user.goal) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+              <%= link_to edit_goal_path(current_user.goal),remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
             </div>
           </div>
         </div>
@@ -90,7 +89,7 @@
                 </table>          
               </div>
               <div class="card-action center-align">
-                <%= link_to edit_log_path(log) do %><i class="material-icons">edit<span>編集</span></i><% end %>
+                <%= link_to edit_log_path(log), remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
                 <%= link_to log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} do %><i class="material-icons">clear<span>削除</span></i><% end %>
               </div>
             </div>
@@ -100,14 +99,19 @@
     </div>
     <%= paginate @logs %>
   <% end %>
+  <div id="modal" class="modal"></div>
 
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
       <h1>My Ideal Body</h1>
       <h3>あなたの理想のカラダへ</h3>
-      <%= link_to "新規登録", signup_path, class:"btn btn-info btn-lg" %>
+      <div class="modal-trigger user" data-target="modal">
+        <%= link_to "新規登録", signup_path, remote: true, class:"waves-effect waves-light btn cyan lighten-2" %>
+        <%= link_to "ログイン", login_path, remote: true, class:"waves-effect waves-light btn" %>
+      </div>
     </div>
   </div>
+  <div class="modal" id="modal"></div>
 <% end %>
 

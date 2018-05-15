@@ -55,6 +55,14 @@ div .form-group .text-center{
 	font-weight: 900;
 }
 
+.user a{
+	margin-right: 40px;
+}
+
+.form{
+	margin-top: 60px;
+}
+
 @media screen and ( max-width:479px )
 {
 	/* ボディ */
