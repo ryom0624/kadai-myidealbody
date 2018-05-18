@@ -63,6 +63,17 @@ div .form-group .text-center{
 	margin-top: 60px;
 }
 
+	.cache img{
+		margin:10px 10px;
+		height:200px;
+		width:200px;
+	}
+
+  div.card .cache {
+  	padding: 0 10px 5px;
+  }
+
+
 @media screen and ( max-width:479px )
 {
 	/* ボディ */
@@ -104,10 +115,20 @@ div .form-group .text-center{
 		width: 200vw;
 	}
 
-	.chash img{
+	.cache img{
 		margin:10px 10px;
 		height:200px;
 		width:200px;
 	}
+
+  div.card .cache {
+  	padding: 0 10px 5px;
+  }
+
+.user a{
+	margin:10px ;
+}
+
+
 
 }

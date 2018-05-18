@@ -16,8 +16,8 @@
       <div class="col s12 m6 l6">
         <div class="card animated slideInUp hoverable">
           <div class="card-content">
-            <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align">
-              <%= link_to new_goal_path do %><i class="material-icons">add</i><% end %>
+            <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align modal-trigger" data-target="modal">
+              <%= link_to new_goal_path, remote: true do %><i class="material-icons">add</i><% end %>
             </div>
             <span class="weight-card">目標を設定しよう</span>
           </div>
@@ -86,7 +86,7 @@
                       <td><%= log.fat %>%</td>
                     </tr>
                   </tbody>
-                </table>          
+                </table>
               </div>
               <div class="card-action center-align">
                 <%= link_to edit_log_path(log), remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>

@@ -3,6 +3,7 @@
     <h3>ログ編集</h3>
     <%= form_for log, remote: true do |f| %>
       <%= render "layouts/error_messages", model: f.object %>
+      
       <div class="form-group">
         <%= f.label :date, "日付"%>
         <div class="input-field">

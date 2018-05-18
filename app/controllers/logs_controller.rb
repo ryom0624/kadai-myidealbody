@@ -1,6 +1,7 @@
 class LogsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:edit, :update,:destroy]
+  protect_from_forgery
 
   def new
     @log = current_user.logs.build
