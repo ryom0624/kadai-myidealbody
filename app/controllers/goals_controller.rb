@@ -2,7 +2,7 @@ class GoalsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:edit, :update]
   protect_from_forgery
-
+  
   def new
     @goal = current_user.build_goal
   end

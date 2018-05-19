@@ -1,102 +1,17 @@
 <% if logged_in? %>
-  <div class="row">
-    <div class="col s12 m6 l6">
-      <div class="card animated slideInUp hoverable">
-        <div class="card-content">
-          <div class="btn-floating btn-medium waves-effect waves-light blue lighten-3 center-align modal-trigger" data-target="modal">
-            <%= link_to new_log_path, remote: true do %><i class="material-icons">add</i><% end %>
-          </div>
-          <span class="weight-card">本日の体重を入力する</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% unless current_user.goal.present? %>
-    <div class="row">
-      <div class="col s12 m6 l6">
-        <div class="card animated slideInUp hoverable">
-          <div class="card-content">
-            <div class="btn-floating btn-medium waves-effect waves-light orange darken-1 center-align modal-trigger" data-target="modal">
-              <%= link_to new_goal_path, remote: true do %><i class="material-icons">add</i><% end %>
-            </div>
-            <span class="weight-card">目標を設定しよう</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <%= render "new", path: new_log_path, text: "本日の体重を入力する", color: "blue lighten-3" %>
+  <% unless @goal.present? %>
+    <%= render "new", path: new_goal_path, text: "目標を設定しよう", color: "orange darken-1" %>
   <% else %>
-    <div class="row">
-      <h3 class="header">目標</h3>
-      <div class="col s12 m12 center-align">
-        <div class="card horizontal animated bounceInUp hoverable">
-          <div class="card-image">
-            <%= image_tag current_user.goal.image %>
-          </div>
-          <div class="card-stacked" >
-            <div class="card-content table-responsive">
-              <table class="centered">
-                <thead>
-                  <tr>
-                    <th>期日</th>
-                    <th>体重</th>
-                    <th>体脂肪率</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><%= @goal.date.strftime("%Y/%m/%d") %></td>
-                    <td><%= @goal.weight %>kg</td>
-                    <td><%= @goal.fat %>%</td>
-                  </tr>
-                </tbody>
-              </table>          
-            </div>
-            <div class="card-action center-align">
-              <%= link_to edit_goal_path(current_user.goal),remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h3 class="header">目標</h3>
+    <%= render "card", content: @goal, path: edit_goal_path(@goal), display: "hide" %>
   <% end %>
 
-  <% unless @logs.present? %>
-  <% else %>
+  <% if @logs.present? %>
     <h3 class="header">ログ</h3>
-      <% @logs.each do |log| %>
-        <div class="col s12 m12">
-          <div class="card horizontal animated bounceInUp hoverable">
-            <div class="card-image">
-              <%= image_tag log.image%>
-            </div>
-            <div class="card-stacked" >
-              <div class="card-content table-responsive">
-                <table class="centered">
-                  <thead>
-                    <tr>
-                      <th>日付</th>
-                      <th>体重</th>
-                      <th>体脂肪率</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><%= log.date.strftime("%Y/%m/%d") %></td>
-                      <td><%= log.weight %>kg</td>
-                      <td><%= log.fat %>%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="card-action center-align">
-                <%= link_to edit_log_path(log), remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
-                <%= link_to log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} do %><i class="material-icons">clear<span>削除</span></i><% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <% @logs.each do |log| %>
+      <%= render "card", content: log, path: edit_log_path(log), display: ""  %>
+    <% end %>
     <%= paginate @logs %>
   <% end %>
   <div id="modal" class="modal"></div>

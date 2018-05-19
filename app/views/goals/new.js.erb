@@ -1,2 +1,2 @@
-$("#modal").html("<%= escape_javascript(render 'form_new', goal: @goal) %>");
+$("#modal").html("<%= escape_javascript(render 'form', goal: @goal, title: "目標設定") %>");
 $("#modal").modal("show");

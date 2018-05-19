@@ -1,2 +1,2 @@
-$("#modal").html("<%= escape_javascript(render 'form_new', log: @log) %>");
+$("#modal").html("<%= escape_javascript(render 'form', log: @log, title: "新規ログ") %>");
 $("#modal").modal("show");

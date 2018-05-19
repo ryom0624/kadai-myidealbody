@@ -1,7 +1,7 @@
 <div class="row form">
   <div class="col m10 offset-m1 s12">
-    <h3>新規ログ</h3>
-    <%= form_for log, remote: true do |f| %>
+    <h3><%= title %></h3>
+    <%= form_for log, authenticity_token: true do |f| %>
       <%= render "layouts/error_messages", model: f.object %>
       
       <div class="form-group">
@@ -10,13 +10,16 @@
           <%= f.date_field :date %>
         </div> 
       </div>
+
       <div class="form-group">
         <%= f.number_field :weight ,step:0.05, placeholder:"体重(kg)" %>
       </div>
+
       <div class="form-group">
         <%= f.number_field :fat ,step:0.1, placeholder:"体脂肪率(%)" %>
       </div>
-      <div class="form-group">
+
+      <div class="form-group cache">
         <%= f.label :date, "画像"%>
         <div class="input-field">
             <%= f.file_field :image ,class:"file-path validate"%>
@@ -25,9 +28,10 @@
           <%= image_tag log.image.url if log.image?%>
           <%= f.hidden_field :image_cache %>
         </div>
-        <div class="center-align">
-          <%= f.submit "保存", class:"waves-effect waves-green btn btn-success" %>
-        </div>
+      </div>
+
+      <div class="center-align">
+        <%= f.submit "保存", class:"waves-effect waves-green btn btn-success" %>
       </div>
     <% end %>
   </div>

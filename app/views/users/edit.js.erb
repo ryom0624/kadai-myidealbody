@@ -1,2 +1,2 @@
-$("#modal").html("<%= escape_javascript(render 'form_edit', user: @user) %>");
+$("#modal").html("<%= escape_javascript(render 'form', user: @user, title:"ユーザー編集") %>");
 $("#modal").modal("show");

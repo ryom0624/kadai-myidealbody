@@ -1,2 +1,2 @@
-$("#modal").html("<%= escape_javascript(render 'form_edit', log: @log) %>");
+$("#modal").html("<%= escape_javascript(render 'form', log: @log, title: "ログ編集") %>");
 $("#modal").modal("show");

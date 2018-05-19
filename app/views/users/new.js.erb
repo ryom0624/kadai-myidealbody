@@ -1,2 +1,2 @@
-$("#modal").html("<%= escape_javascript(render 'form_new', user: @user) %>");
+$("#modal").html("<%= escape_javascript(render 'form', user: @user, title:"新規登録") %>");
 $("#modal").modal("show");
