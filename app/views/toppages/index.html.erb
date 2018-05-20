@@ -1,19 +1,8 @@
 <% if logged_in? %>
-  <%= render "new", path: new_log_path, text: "本日の体重を入力する", color: "blue lighten-3" %>
-  <% unless @goal.present? %>
-    <%= render "new", path: new_goal_path, text: "目標を設定しよう", color: "orange darken-1" %>
-  <% else %>
-    <h3 class="header">目標</h3>
-    <%= render "card", content: @goal, path: edit_goal_path(@goal), display: "hide" %>
-  <% end %>
-
-  <% if @logs.present? %>
-    <h3 class="header">ログ</h3>
-    <% @logs.each do |log| %>
-      <%= render "card", content: log, path: edit_log_path(log), display: ""  %>
-    <% end %>
-    <%= paginate @logs %>
-  <% end %>
+  <%= render "log_new" %>
+  <%= render "goal_card", goal: @goal%>
+  <%= render "log_card", logs: @logs %>
+  <%= paginate @logs %>
   <div id="modal" class="modal"></div>
 
 <% else %>

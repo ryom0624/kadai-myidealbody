@@ -1,106 +1,11 @@
-
 <%= render "form" %>
 
-
 <div class="row">
-  <% unless @log1.present? %>
-  <% else %>
-    <div class="col s12 m12 l4 center-align">
-      <div class="card hoverable animated zoomIn">
-        <div class="card-image">
-          <%= image_tag @log1.image,size: "290x400"%>
-          <span class="card-title">ログデータ１</span>
-        </div>
-        <div class="card-content">
-          <table class="centered">
-            <thead>
-              <tr>
-                <th>日付</th>
-                <th>体重</th>
-                <th>体脂肪率</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= @log1.date.strftime("%Y/%m/%d") %></td>
-                <td><%= @log1.weight %>kg</td>
-                <td><%= @log1.fat %>%</td>
-              </tr>
-            </tbody>
-          </table>          
-        </div>
-        <div class="card-action">
-          <%= link_to edit_log_path(@log1), remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
-        </div>      
-      </div>
-    </div>
-  <% end %>
+
+  <%= render "result_log", log: @log1, num: "1" %>
+  <%= render "result_log", log: @log2, num: "2" %>
+  <%= render "result_goal", goal: @goal %>
   
-  <% unless @log2.present? %>
-  <% else %>
-    <div class="col s12 m12 l4 center-align">
-      <div class="card hoverable animated zoomIn">
-        <div class="card-image">
-          <%= image_tag @log2.image,size: "290x400"%>
-          <span class="card-title">ログデータ２</span>
-        </div>
-        <div class="card-content">
-          <table class="centered">
-            <thead>
-              <tr>
-                <th>日付</th>
-                <th>体重</th>
-                <th>体脂肪率</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= @log2.date.strftime("%Y/%m/%d") %></td>
-                <td><%= @log2.weight %>kg</td>
-                <td><%= @log2.fat %>%</td>
-              </tr>
-            </tbody>
-          </table>          
-        </div>
-        <div class="card-action">
-          <%= link_to edit_log_path(@log2), remote: true do %><i class="material-icons  modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
-        </div>
-      </div>
-    </div>  
-  <% end %>
-  
-  <% unless @goal.present? %>
-  <% else %>
-    <div class="col s12 m12 l4 center-align">
-      <div class="card hoverable animated zoomIn">
-        <div class="card-image">
-          <%= image_tag @goal.image,size: "290x400"%>
-          <span class="card-title">目標</span>
-        </div>
-        <div class="card-content">
-          <table class="centered">
-            <thead>
-              <tr>
-                <th>日付</th>
-                <th>体重</th>
-                <th>体脂肪率</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= @goal.date.strftime("%Y/%m/%d") %></td>
-                <td><%= @goal.weight %>kg</td>
-                <td><%= @goal.fat %>%</td>
-              </tr>
-            </tbody>
-          </table>          
-        </div>
-        <div class="card-action">
-          <%= link_to edit_goal_path(@goal), remote: true do %><i class="material-icons  modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
 </div>
 
 <div class="modal" id="modal">

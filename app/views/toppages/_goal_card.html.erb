@@ -1,0 +1,6 @@
+<% if !goal.present? %>
+  <%= render "goal_new" %>
+<% else %>
+  <h3 class="header">目標</h3>
+  <%= render "goals/goal", goal: @goal %>
+<% end %>

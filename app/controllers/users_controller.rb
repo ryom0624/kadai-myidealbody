@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "ユーザの登録を完了しました"
+      session[:user_id] = @user.id
       redirect_to root_url
     else
       flash.now[:danger] = "ユーザを登録に失敗しました"

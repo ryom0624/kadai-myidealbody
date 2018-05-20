@@ -2,7 +2,7 @@
   <div class="col s12 m12 center-align">
     <div class="card horizontal animated bounceInUp hoverable">
       <div class="card-image">
-        <%= image_tag content.image %>
+        <%= image_tag log.image %>
       </div>
       <div class="card-stacked" >
         <div class="card-content table-responsive">
@@ -16,16 +16,16 @@
             </thead>
             <tbody>
               <tr>
-                <td><%= content.date.strftime("%Y/%m/%d") %></td>
-                <td><%= content.weight %>kg</td>
-                <td><%= content.fat %>%</td>
+                <td><%= log.date.strftime("%Y/%m/%d") %></td>
+                <td><%= log.weight %>kg</td>
+                <td><%= log.fat %>%</td>
               </tr>
             </tbody>
           </table>          
         </div>
         <div class="card-action center-align">
-          <%= link_to path,remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
-          <%= link_to log_path(content), method: :delete, class: display, data: {confirm: "削除してもよろしいですか?"} do %><i class="material-icons">clear<span>削除</span></i><% end %>
+          <%= link_to edit_log_path(current_user),remote: true do %><i class="material-icons modal-trigger" data-target="modal">edit<span>編集</span></i><% end %>
+          <%= link_to log_path(log), method: :delete, data: {confirm: "削除してもよろしいですか?"} do %><i class="material-icons">clear<span>削除</span></i><% end %>
         </div>
       </div>
     </div>
