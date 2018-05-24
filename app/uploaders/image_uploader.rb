@@ -9,6 +9,11 @@ class ImageUploader < CarrierWave::Uploader::Base
    storage :file
   end
   
+  #デフォルトイメージ
+  def default_url
+    "default.png"
+  end
+  
   #アップロード先
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
